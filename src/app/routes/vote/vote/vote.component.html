@@ -1,0 +1,95 @@
+<div class="container">
+<section id="plans">
+        <div class="container">
+            <div class="row">
+
+                <!-- item -->
+                <div class="col-md-2 text-center">
+
+                </div>
+                <!-- /item -->
+
+                <!-- item -->
+                <div class="col-md-8 text-center">
+                    <div class="panel panel-warning panel-pricing">
+                        <div class="panel-heading">
+                            <i class="fa fa-desktop"></i>
+
+                            <h4 >Welcome {{username}}</h4>
+                        </div>
+
+
+
+                        <div class="panel-body text-center " style="background-color:cornflowerblue" >
+                            <h4 class="col-xs-12">Choose where you want to pass the week end of Noel please:</h4>
+                        </div>
+                        <ul class="list-group " >
+                            <li class="list-group-item"  style="background-color:cornflowerblue">
+                                <i class="fa fa-check"></i>
+                                  <form style="background-color:cornflowerblue" style="padding: 5%" (ngSubmit)="OnVote()">
+                                <div  *ngFor="let item of CountyChoice" >
+                                    <div  class="panel-body text-center " style="background-color:cornflowerblue" >
+                                        <label for="{{item.name}}" class="customcheck" style="text-align: left;"  >{{ item.name }}
+                                      <input type="radio" name ="country" id="{{item.name}}" value="{{item.name}}" [(ngModel)]="SelectedCountry" >
+                                      <span class="checkmark"></span>
+                                      </label>
+                                    </div>
+                                </div>
+
+                                <div >
+                                    <input class="btn btn-lg btn-block btn-block" type="submit" value="Vote Now!!">
+                                </div>
+                              </form>
+                                </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <!-- /item -->
+
+                <!-- item -->
+                <div class="col-md-2 text-center">
+
+                </div>
+                <!-- /item -->
+
+            </div>
+        </div>
+    </section>
+    <!-- /Plans -->
+
+
+
+</div>
+
+
+
+
+
+
+<!-- <form style="background-color:bisque" style="padding: 5%" (ngSubmit)="OnVote()">
+
+    <div class="panel-body text-center " style="background-color:bisque" >
+        <label for="suede" class="customcheck" style="text-align: left;"  (change)="toggleEditable($event)">Suède
+      <input type="radio" name="country" value="suede" id="suede">
+      <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="panel-body text-center " style="background-color:bisque" >
+        <label for="newyork" class="customcheck" style="text-align: left;">
+      <input type="radio" name="country" value="newyork" id="newyork">
+      New York
+      <span class="checkmark"></span>
+    </label>
+    </div>
+    <div class="panel-body text-center " style="background-color:bisque" >
+        <label for="paris" class="customcheck" style="text-align: left;">
+      <input type="radio" name="country" value="paris" id="paris">
+      Paris
+    <span class="checkmark"></span>
+    </label>
+    </div>
+    <div >
+        <input class="btn btn-lg btn-block btn-block" type="submit" value="Vote Now!!">
+    </div>
+  </form> -->
