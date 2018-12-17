@@ -26,12 +26,22 @@ export class AuthenticationComponent implements OnInit {
         // this.dataService.setOption('token', data.token);
         this.dataService.setOption('username', data.name);
         this.dataService.setOption('Id', data.id);
-        console.log("hello");
         localStorage.setItem("token", data.token);
         this.router.navigate(["vote"]);
       },
       (err: HttpErrorResponse) => {
         console.error(err);
+        if (err.status === 401) {
+          this.router.navigate(['auth']);
+          console.error('Logged in user no longer authenticated on server.', 'Unable to connect to server');
+        } else if (err.status === 404) {
+          console.log("it is 404");
+          console.error('Unable to connect to server. Missing or wrong URL, please try again', 'Unable to connect to server');
+        } else if (err.status === 0) {
+          console.error('Server appears to be temporary unavailable', 'Unable to connect to server');
+        } else if (err.status === 500) {
+          console.error('Server appears to be temporary unavailable', 'Unable to connect to server');
+        }
       }
     );
   }
